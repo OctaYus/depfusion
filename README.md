@@ -30,6 +30,9 @@ depfusion -f urls.txt -o out -workers 40
 | `-insecure` | `true` | Skip TLS verification — handles wildcard / underscore host cert mismatches |
 | `-no-probe-map` | `false` | Don't auto-append `.map` to each URL |
 | `-no-follow-inline-map` | `false` | Don't follow `//# sourceMappingURL=` pointers |
+| `-no-color` | `false` | Disable ANSI colors (auto-disabled when stderr is not a TTY, or when `NO_COLOR` is set) |
+| `-color` | `false` | Force ANSI colors even when stderr is not a TTY |
+| `-version` | — | Print version and exit |
 
 ## Output (`<out>/`)
 
@@ -40,6 +43,8 @@ depfusion -f urls.txt -o out -workers 40
 | `unknown.txt` | `name<TAB>url` — registry check failed, **verify manually** |
 | `results.jsonl` | One JSON object per URL (streamed) |
 | `scope_report.txt` | Per-scope tally; `<-- HIGH SIGNAL` = scope with only claimable packages |
+| `summary.md` | Human-readable run summary (config, counts, top scopes, caveat) |
+| `run_info.json` | Machine-readable run metadata (config, stats, timestamps) |
 
 ## What it filters
 
